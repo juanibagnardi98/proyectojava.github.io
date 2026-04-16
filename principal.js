@@ -19,7 +19,6 @@ const sumarPuntos = crearContador();
 
 saludo();
 function saludo() {
-    console.log("Bienvenido al quiz mágico");
 }
 
 const contenedor = document.getElementById("quiz");
@@ -67,7 +66,6 @@ function analizarDatos() {
     const totalOpciones = preguntas.reduce((acc, p) => acc + p.opciones.length, 0);
     const ordenadas = [...preguntas].sort((a, b) => a.pregunta.localeCompare(b.pregunta));
 
-    console.log(textos, filtradas, encontrada, totalOpciones, ordenadas);
 }
 function obtenerDatos() {
     return new Promise((resolve, reject) => {
@@ -84,7 +82,6 @@ function obtenerDatos() {
 async function iniciarQuiz() {
     try {
         const data = await obtenerDatos(); 
-        console.log("Datos cargados:", data);
         mostrarPregunta(0);
         analizarDatos();
     } catch (error) {
